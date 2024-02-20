@@ -1,0 +1,241 @@
+body {
+  background-color: #191a1e;
+}
+.overall-div {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+#sidebar {
+  background-color: #202528;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+.overall-div .seconddiv .split .wrap-input {
+  background-color: #51585c;
+  height: 45px;
+  border-radius: 50px;
+  width: 75%;
+}
+.overall-div .seconddiv .split .wrap-input img {
+  width: 30px;
+  height: 30px;
+}
+.overall-div .seconddiv .split .wrap-input input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 75%;
+  color: white;
+}
+
+.home {
+  font-size: larger;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.discover {
+  font-size: larger;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.explore {
+  font-size: larger;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.library {
+  color: rgb(0, 255, 115);
+  background-image: linear-gradient(to right, red, blue);
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+#companyname {
+  font-size: 1.5em;
+  font-weight: bolder;
+  color: rgb(0, 255, 115);
+  background-image: linear-gradient(to right, red, blue);
+}
+
+#thirddiv {
+  width: 40em;
+  background-color: rgb(255, 166, 0);
+  height: 10em;
+  border-radius: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.enjoy {
+  font-size: 1.6em;
+  font-weight: 900;
+  margin-left: 10px;
+  width: 50%;
+}
+
+input::placeholder {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.artists {
+  color: white;
+  font-size: 2em;
+  font-weight: bolder;
+  /* margin-top: -2em;   */
+  margin-left: 12px;
+}
+
+.fourthdiv {
+  background-color: #51585c;
+  width: 40em;
+  height: 20em;
+  margin-top: 1.5em;
+  margin-left: 10px;
+  border-radius: 10px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 30px !important;
+ 
+}
+.fourthdiv::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.267);
+}
+.fourthdiv::-webkit-scrollbar-thumb{
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar{
+  width: 4px;
+  height: 11px;
+}
+::-webkit-scrollbar-track{
+  background: blue;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb{
+  background: red;
+  height: 11px;
+}
+::-webkit-scrollbar-corner{
+  background: red;
+}
+.loader {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border: 4px solid #282828;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1),
+    10px 10px 10px rgba(0, 0, 0, 0.4),
+    inset -5px -5px 5px rgba(255, 255, 255, 0.2),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+  z-index: 10;
+  background: #212121;
+  border-radius: 50%;
+  border: 2px solid #292929;
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #3498db;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+
+@media screen and (max-width: 482px){
+  #sidebar{
+    display: none;
+  }
+  #divOne{
+    display: none;
+  }
+  #search{
+    /* background-image: linear-gradient(to right, red, blue); */
+    width: 590px !important;
+    color: white;
+  }
+  #image3{
+    width: 200px !important;
+  }
+  #thirddiv{
+    width: 330px !important;
+    height: 250px;
+  }
+  #fourthdiv{
+     width: 334px;
+  }
+.overall-div .seconddiv .split .wrap-input {
+  width: 340px !important;
+}
+.overall-div .seconddiv .split .wrap-input img {
+  width: 020px !important;
+}
+}
+
+  

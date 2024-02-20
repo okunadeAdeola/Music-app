@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+  body{
+    background-image: linear-gradient(to right, red, blue);
+    
+  }
+  section{
+    margin-left: 20%;
+    margin-top: 10%;
+    background-color: rgba(0, 0, 0, 0.425);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    /* height: 54vh; */
+    width: 50vw;
+    border-radius: 10px;
+    box-shadow: 10px 19px 15px -5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+  }
+  h1{
+    margin-left: 24%;
+    margin-top: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+  }
+  #move{
+    animation: move 5s linear infinite;
+    overflow-y: hidden;
+    width: 120px !important;
+  }
+  #moving{
+    animation: moves 5s linear infinite;
+    overflow-y: hidden;
+    width: 120px !important;
+    animation-delay: 2s;
+  }
+  @keyframes move {
+    0% {
+      transform: translatey(0px);
+      overflow: hidden;
+    } 100% {
+      transform: translateY(-500px);
+    }
+  }
+  @keyframes moves {
+    0% {
+      transform: translatey(0px);
+      overflow: hidden;
+    } 100% {
+      transform: translateY(-500px);
+    }
+  }
+  #image{
+    border: 0px;
+    background-color: black;
+    width: 40px;
+    margin-left: 30%;
+  }
+</style>
+<body>
+
+  <section>
+     <h1 class="shadow shadow-light my-4">Sign up to the world <br> of Spirituality and  transcedence</h1>
+     <div id="error" style="margin-left: 32%;">Spaces can't be empty</div>
+     <input type="email" class="form-control w-75 mx-auto" placeholder="Enter your email address" id="email">
+     <input type="password" class="form-control w-75 mx-auto mt-3" placeholder="Enter your password" id="password"><br>
+     <button onclick="signp()" id="imaged" class="btn btn-dark" style="margin-left: 45%;">Continue</button>
+     <div>
+     <hr><h2 style="margin-left: 48%;">or</h2>
+     <div style="margin-left: 44%; font-weight: bold; font-size: 18px;">Sign up with</div>
+    <button onclick="signG()" id="image"><img src="image/download__1_-removebg-preview.png" alt="" id="image"></button>
+    <button onclick="signA()"><img src="" alt=""></button>
+    <div>Already have an account? <a href="index2.html">Login</a></div>
+  </section>
+     <div>
+      <img src="image/music_icon-removebg-preview.png" alt="" id="move">
+      <img src="image/music_icon-removebg-preview.png" alt="" id="moving">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="move">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="moving">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="move">
+      <img src="image/music_icon-removebg-preview.png" alt="" id="moving">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="move">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="moving">
+      <img src="image/music_icon-removebg-preview.png" alt="" id="move">
+      <img src="image/music_icon_2-removebg-preview.png" alt="" id="moving">
+      <img src="image/music_icon-removebg-preview.png" alt="" id="move">
+</div>
+    
+   <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth,signInWithPopup,GoogleAuthProvider,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkIW0RzYzeigqrBHDDCJFNtnOHMKUCdHs",
+      authDomain: "log-with-345e5.firebaseapp.com",
+      projectId: "log-with-345e5",
+      storageBucket: "log-with-345e5.appspot.com",
+      messagingSenderId: "587343794574",
+      appId: "1:587343794574:web:cba170357fcaf48569d4df"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+  
+
+    const signG = ()=>{
+      signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(user);
+      if(user){
+        window.location.href = 'index3.html'
+      }
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(errorMessage);
+    });
+    }
+    window.signG = signG
+    const signp = ()=>{
+        let email = document.getElementById('email').value
+        let password = document.getElementById('password').value
+        if(email == '' || password == ''){
+           
+        }
+        createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        if(user){
+        window.location.href = 'index3.html'
+      }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+    }
+    window.signp = signp
+  </script>
+
+  <script src="bootstrap.js"></script>
+</body>
+</html>

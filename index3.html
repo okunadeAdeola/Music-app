@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="">
+    <div class="overall-div">
+      <div class="" id="sidebar">
+        <p class="companyname" id="companyname">
+          <img src="" alt="" class="logo" />VISUAL TENDENCY
+        </p>
+        <p class="home">Home</p>
+        <p class="discover">Discover</p>
+        <p class="explore">Explore</p>
+
+        <div>
+          <p class="library">Your Library</p>
+          <p class="home">Favourite</p>
+          <p class="discover">Recently Played</p>
+          <p class="explore">Playlists</p>
+        </div>
+      </div>
+      <div class="seconddiv">
+        <div class="split">
+          <div class="wrap-input d-flex px-2 gap-3">
+            <img
+              src="./images/download-removebg-preview.png"
+              alt="" 
+              class="mt-2" onclick="search()" id="image3"
+            />
+            <input type="text" id="search" placeholder="Search for music" oninput="search()" />
+          </div>
+        </div>
+        <div class="split">
+          <div class="w-50">
+            <div id="thirddiv" style="background-image: linear-gradient(to right, red, blue); color: white;">
+              <p class="enjoy">Enjoy The World of Spirituality and Transcedence</p>
+            </div>
+          </div>
+          <div class="w-50"></div>
+        </div>
+        <p class="artists">TOP ARTISTS</p>
+        <div class="fourthdiv" id="fourthdiv">       
+          <div class="loading-wave" id="load">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+          </div>          
+      </div>
+        <div style="background-image: linear-gradient(to right, red, blue); color: white; margin-left: 700px; margin-top: -550px; width: 400px; border-radius: 1-px; height: 500px;" id="divOne"></div>
+      </div>
+    </div>
+    <script src="bootstrap.js"></script>
+    <script src="script.js"></script>
+    <script>
+      window.onload = playme;
+    </script>
+  </body>
+</html>

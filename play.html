@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+  </head>
+  <style>
+    body{
+      background-color: green;
+    }
+  </style>
+  <body>
+    <div id="display"></div>
+    <audio id="myAudio"></audio>
+    <div style="margin-left: 500px; display: flex; gap: 10px; font-size: 200px !important;">
+      <!-- <img src="images/me.png" alt="" style="width: 30px; height: 30px; margin-left: 35em; margin-top: 3px;"  id="playBtn"> -->
+      <button onclick="backForwardAudio()"style="height: 60px; width: 80px;"><i class="bi bi-skip-backward-circle"></i></button>
+      <button id="playBtn"style="height: 60px; width: 80px;"><i class="bi bi-play-circle" id="icon" ></i></button>
+      <button onclick="fastForwardAudio()"style="height: 60px; width: 80px;"><i class="bi bi-fast-forward-circle font-size:200px;"></i></button>
+      <input
+        type="range"
+        id="volumeSlider"
+        min="0"
+        max="1.6"
+        step="0.1"
+        value="2"
+      />
+      <input
+        type="range"
+        id="audioTimer"
+        min="0"
+        max="1.6"
+        step="0.1"
+        value="2"
+      />
+    </div>
+
+
+
+    <script>
+      let getmusic = JSON.parse(localStorage.getItem("playMusic"));
+      display.innerHTML = `
+        <img src='${getmusic.songImage}' style="margin-top: 10em; margin-left: 35em;"/>
+        <p style="margin-left: 18.65em; margin-top:-5px; font-size:2em;   font-family: Georgia, "Times New Roman", Times, serif;">${getmusic.songTitle}</p>
+        `;
+      // console.log(display.innerHTML);
+
+      const audio = document.getElementById("myAudio");
+      audio.setAttribute("src", `${getmusic.songUrl}`);
+      audio.setAttribute("class", "music");
+      console.log(audio);
+      const playBtn = document.getElementById("playBtn");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const volumeSlider = document.getElementById("volumeSlider");
+
+      let music = 'play'
+      playBtn.addEventListener("click", function () {
+    console.log(audio.currentTime);
+        audioTimer.min=audio.currentTime
+        if(music=='play'){ 
+          audio.play()
+          music='pause'
+          document.getElementById('icon').className='bi bi-pause-circle'
+        }
+        else{
+          audio.pause()
+          music='play'
+          document.getElementById('icon').className='bi bi-play-circle'
+        }
+      });
+
+      pauseBtn.addEventListener("click", function () {
+        audio.pause();
+      });
+
+      stopBtn.addEventListener("click", function () {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+      volumeSlider.addEventListener("input", function () {
+        audio.volume = volumeSlider.value;
+      });
+      function fastForwardAudio() {
+    // Increment the current playback time by a certain amount (e.g., 10 seconds)
+    audio.currentTime += 10;
+      }
+
+      function backForwardAudio() {
+    // Increment the current playback time by a certain amount (e.g., 10 seconds)
+    audio.currentTime -= 10;
+      }
+    </script>
+  </body>
+</html
+ n>

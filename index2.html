@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+    body{
+        background-image: linear-gradient(to right, pink, orange);
+    }
+</style>
+<body>
+     <section class="container shadow shadow-light bg-light w-25" style="margin-top: 10%; height: 40vh;">
+        <div style="margin-left: 44%; font-family: 'Courier New', Courier, monospace; font-size: 20px; font-weight: bold;">Sign up</div>
+        <div style="margin-left: 30%; font-size: 18px;">Login to your account</div><br>
+        <div style="margin-left: 30%; background-color: red; width: 40%; color: white; display: none;" id="error">Spaces can't be empty</div>
+        <div>
+        <label for="" style="margin-left: 10%;">Email:</label><br>
+        <input type="email" class="w-75" style="margin-left: 10%; color: white; background-image: linear-gradient(to right, red, blue); border: 0; padding: 3px;" id="inp1">
+    </div>
+    <div>
+        <label for="" style="margin-left: 10%;">password:</label><br>
+        <input type="password" name="" id="inp2" style="margin-top: 5px;margin-left: 10%; color: white; background-image: linear-gradient(to right, red, blue); border: 0; padding: 3px;" class="w-75">
+    </div>
+    <button class="btn btn-dark mt-3 w-50" style="margin-left: 20%;" onclick="signUp()">Continue</button>
+     </section>
+    <script src="bootstrap.js"></script>
+    <script>
+        const signUp = ()=>{
+            let inp1 = document.getElementById('inp1').vlaue
+            let inp2 = document.getElementById('inp2').value
+            if(inp1 == '' || inp2 == ''){
+                error.style.display = 'block'
+                setTimeout(() => {
+                    error.style.display = 'none'    
+                }, 3000);
+            } else{
+                window.location.href = 'index3.html'
+            }
+            document.getElementById('inp1').value = ''
+            document.getElementById('inp2').value = ''
+        }
+    </script>
+</body>
+</html>
